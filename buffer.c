@@ -1,3 +1,10 @@
+/*
+ * buffer.c
+ *
+ *  Created on: Apr 16, 2019
+ *      Author: rufusy
+ */
+
 #include "buffer.h"
 
 /*
@@ -12,7 +19,7 @@ void buf_reset(circular_buffer *buf, uint16_t size)
 */
 uint16_t buf_len(const circular_buffer *buf)
 {
-    uint16_t len = buf->tail - buf->head;
+    volatile uint16_t len = buf->tail - buf->head;
     if (len < 0)
         len += buf->size;
     return len;
@@ -20,7 +27,7 @@ uint16_t buf_len(const circular_buffer *buf)
 
 /*
 */
-uint16_t buf_isfull(const circular_buffer *buf);
+uint16_t buf_isfull(const circular_buffer *buf)
 {
     return buf->head == ((buf->tail + 1) % buf->size);
 }
@@ -68,3 +75,13 @@ void buf_put_byte(circular_buffer *buf, uint8_t val)
     buf->data[buf->tail] = val;
     buf->tail = (buf->tail + 1) % buf->size;
 }
+
+
+
+
+
+
+
+
+
+
