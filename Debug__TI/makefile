@@ -8,14 +8,13 @@ GEN_OPTS__FLAG :=
 GEN_CMDS__FLAG := 
 
 ORDERED_OBJS += \
-"./analog_management.obj" \
-"./buffer.obj" \
-"./day_time.obj" \
-"./io_management.obj" \
+"./analog_mgr.obj" \
+"./io_mgr.obj" \
 "./main.obj" \
-"./relay_management.obj" \
+"./relay_mgr.obj" \
 "./sanitze_cfg.obj" \
 "./tm4c123gh6pm_startup_ccs.obj" \
+"./uart_mgr.obj" \
 "../tm4c123gh6pm.cmd" \
 $(GEN_CMDS__FLAG) \
 -llibc.a \
@@ -160,8 +159,8 @@ WIFIRelayBoard.hex: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(BIN_OUTPUTS__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "analog_management.obj" "buffer.obj" "day_time.obj" "io_management.obj" "main.obj" "relay_management.obj" "sanitze_cfg.obj" "tm4c123gh6pm_startup_ccs.obj" 
-	-$(RM) "analog_management.d" "buffer.d" "day_time.d" "io_management.d" "main.d" "relay_management.d" "sanitze_cfg.d" "tm4c123gh6pm_startup_ccs.d" 
+	-$(RM) "analog_mgr.obj" "io_mgr.obj" "main.obj" "relay_mgr.obj" "sanitze_cfg.obj" "tm4c123gh6pm_startup_ccs.obj" "uart_mgr.obj" 
+	-$(RM) "analog_mgr.d" "io_mgr.d" "main.d" "relay_mgr.d" "sanitze_cfg.d" "tm4c123gh6pm_startup_ccs.d" "uart_mgr.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 

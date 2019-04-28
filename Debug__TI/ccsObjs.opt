@@ -1,1 +1,1 @@
-"./analog_management.obj" "./buffer.obj" "./day_time.obj" "./io_management.obj" "./main.obj" "./relay_management.obj" "./sanitze_cfg.obj" "./tm4c123gh6pm_startup_ccs.obj" "../tm4c123gh6pm.cmd" -llibc.a -l"/home/rufusy/tiva_sw/driverlib/ccs/Debug/driverlib.lib" 
+"./analog_mgr.obj" "./io_mgr.obj" "./main.obj" "./relay_mgr.obj" "./sanitze_cfg.obj" "./tm4c123gh6pm_startup_ccs.obj" "./uart_mgr.obj" "../tm4c123gh6pm.cmd" -llibc.a -l"/home/rufusy/tiva_sw/driverlib/ccs/Debug/driverlib.lib" 

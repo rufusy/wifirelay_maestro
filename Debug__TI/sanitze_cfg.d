@@ -22,6 +22,8 @@ sanitze_cfg.obj: /home/rufusy/tiva_sw/driverlib/interrupt.h
 sanitze_cfg.obj: /home/rufusy/tiva_sw/driverlib/pin_map.h
 sanitze_cfg.obj: /home/rufusy/tiva_sw/driverlib/sysctl.h
 sanitze_cfg.obj: /home/rufusy/tiva_sw/driverlib/uart.h
+sanitze_cfg.obj: /home/rufusy/tiva_sw/driverlib/adc.h
+sanitze_cfg.obj: ../uart_mgr.h
 
 ../sanitze_cfg.c: 
 ../sanitize_cfg.h: 
@@ -45,3 +47,5 @@ sanitze_cfg.obj: /home/rufusy/tiva_sw/driverlib/uart.h
 /home/rufusy/tiva_sw/driverlib/pin_map.h: 
 /home/rufusy/tiva_sw/driverlib/sysctl.h: 
 /home/rufusy/tiva_sw/driverlib/uart.h: 
+/home/rufusy/tiva_sw/driverlib/adc.h: 
+../uart_mgr.h: 
