@@ -10,7 +10,7 @@
 
 #include "WIFIRelayBoard.h"
 
-
+/*
 extern uint8_t outdata[35];
 extern uint8_t indata[35];
 extern uint8_t read_flag;
@@ -18,5 +18,15 @@ extern uint8_t read_flag;
 void serial_comm_init(void);
 void serial_read(uint8_t indata[], uint8_t ch);
 void serial_print(uint8_t outdata[]);
+*/
+
+extern char outdata[35];
+extern char indata[35];
+extern char read_flag;
+
+void serial_comm_init(void);
+void serial_read(char indata[], char ch);
+void serial_print(char outdata[]);
+
 
 #endif /* UART_MANAGEMENT_H_ */

@@ -10,6 +10,7 @@
 
 #include "WIFIRelayBoard.h"
 
+void io_init(void);
 void channel_select(void);
 void channel_1(void);
 void channel_2(void);

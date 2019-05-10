@@ -14,15 +14,21 @@ main(void)
     SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOD);
     SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOE);
     SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOF);
-    GPIOPinTypeGPIOOutput(GPIO_PORTF_BASE,GPIO_PIN_2); // rx indicator LED
+    GPIOPinTypeGPIOOutput(GPIO_PORTF_BASE,GPIO_PIN_3 | GPIO_PIN_2 | GPIO_PIN_1 ); //enable pin for LED PF2,1
+    io_init();
     serial_comm_init();
     relay_nit();
     adc_init();
     IntMasterEnable();  // enable processor interrupts
     for (;;)
     {
+        // filter the incoming data from uart1 for usage
         get_serial_in(indata);
         sanitize_serial_in();
+
+        // manage relays, digital and analog IOs
+        relay_select();
+        channel_select();
         adc_sample();
     }
 }
