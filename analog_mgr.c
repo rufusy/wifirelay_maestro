@@ -9,6 +9,7 @@
 #include "analog_mgr.h"
 #include "sanitize_cfg.h"
 #include "uart_mgr.h"
+#include "relay_mgr.h"
 
 
 uint32_t adc_value[4] = {'\0'};
@@ -34,5 +35,77 @@ adc_sample(void)
     ADCProcessorTrigger(ADC0_BASE, 1);
     while(!ADCIntStatus(ADC0_BASE, 1, false));
     ADCSequenceDataGet(ADC0_BASE, 1, adc_value);
+}
+
+void
+adc_select(void)
+{   // an1.1000.500.none.relay1.high
+    if (strcmp((char*)sanitize_serial_in_cfg[0],"an1") == 0)
+        analog_1();
+
+    if (strcmp((char*)sanitize_serial_in_cfg[0],"an2") == 0)
+        analog_2();
+
+    if (strcmp((char*)sanitize_serial_in_cfg[0],"an3") == 0)
+        analog_3();
+
+    if (strcmp((char*)sanitize_serial_in_cfg[0],"an4") == 0)
+        analog_4();
+}
+
+void
+analog_1(void)
+{
+    upper_threshold = (uint32_t)sanitize_serial_in_cfg[1];
+    lower_threshold = (uint32_t)sanitize_serial_in_cfg[2];
+    if(adc_value[0] > upper_threshold || adc_value[0] < lower_threshold)
+        analog_relay();
+}
+
+void
+analog_2(void)
+{
+    upper_threshold = (uint32_t)sanitize_serial_in_cfg[1];
+    lower_threshold = (uint32_t)sanitize_serial_in_cfg[2];
+    if(adc_value[1] > upper_threshold || adc_value[1] < lower_threshold)
+        analog_relay();
+}
+
+void
+analog_3(void)
+{
+    upper_threshold = (uint32_t)sanitize_serial_in_cfg[1];
+    lower_threshold = (uint32_t)sanitize_serial_in_cfg[2];
+    if(adc_value[2] > upper_threshold || adc_value[2] < lower_threshold)
+        analog_relay();
+}
+
+void
+analog_4(void)
+{
+    upper_threshold = (uint32_t)sanitize_serial_in_cfg[1];
+    lower_threshold = (uint32_t)sanitize_serial_in_cfg[2];
+    if(adc_value[3] > upper_threshold || adc_value[3] < lower_threshold)
+        analog_relay();
+}
+
+
+void
+analog_relay(void)
+{
+    if (strcmp(sanitize_serial_in_cfg[4],"relay1") == 0)
+        relay_1(sanitize_serial_in_cfg[5]);
+
+    if (strcmp(sanitize_serial_in_cfg[4],"relay2") == 0)
+        relay_2(sanitize_serial_in_cfg[5]);
+
+    if (strcmp(sanitize_serial_in_cfg[4],"relay3") == 0)
+        relay_3(sanitize_serial_in_cfg[5]);
+
+    if (strcmp(sanitize_serial_in_cfg[4],"relay4") == 0)
+        relay_4(sanitize_serial_in_cfg[5]);
+
+    if (strcmp(sanitize_serial_in_cfg[4],"relay5") == 0)
+        relay_5(sanitize_serial_in_cfg[5]);
 }
 

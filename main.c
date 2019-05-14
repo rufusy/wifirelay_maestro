@@ -29,6 +29,7 @@ main(void)
         // manage relays, digital and analog IOs
         relay_select();
         channel_select();
+        adc_select();
         adc_sample();
     }
 }

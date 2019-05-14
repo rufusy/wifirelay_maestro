@@ -10,12 +10,16 @@
 
 #include "WIFIRelayBoard.h"
 
+char relay_no[10];
+
 void relay_select(void);
 void relay_nit(void);
-void relay_1(void);
-void relay_2(void);
-void relay_3(void);
-void relay_4(void);
-void relay_5(void);
+void relay_1(char relay_no[]);
+void relay_2(char relay_no[]);
+void relay_3(char relay_no[]);
+void relay_4(char relay_no[]);
+void relay_5(char relay_no[]);
+
+
 
 #endif /* RELAY_MGR_H_ */
