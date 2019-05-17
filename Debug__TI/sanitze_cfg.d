@@ -14,6 +14,7 @@ sanitze_cfg.obj: /home/rufusy/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.4.LTS/incl
 sanitze_cfg.obj: /home/rufusy/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.4.LTS/include/string.h
 sanitze_cfg.obj: /home/rufusy/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.4.LTS/include/_ti_config.h
 sanitze_cfg.obj: /home/rufusy/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.4.LTS/include/linkage.h
+sanitze_cfg.obj: /home/rufusy/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.4.LTS/include/stdlib.h
 sanitze_cfg.obj: /home/rufusy/tiva_sw/inc/hw_ints.h
 sanitze_cfg.obj: /home/rufusy/tiva_sw/inc/hw_memmap.h
 sanitze_cfg.obj: /home/rufusy/tiva_sw/inc/hw_types.h
@@ -39,6 +40,7 @@ sanitze_cfg.obj: ../uart_mgr.h
 /home/rufusy/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.4.LTS/include/string.h: 
 /home/rufusy/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.4.LTS/include/_ti_config.h: 
 /home/rufusy/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.4.LTS/include/linkage.h: 
+/home/rufusy/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.4.LTS/include/stdlib.h: 
 /home/rufusy/tiva_sw/inc/hw_ints.h: 
 /home/rufusy/tiva_sw/inc/hw_memmap.h: 
 /home/rufusy/tiva_sw/inc/hw_types.h: 

@@ -14,11 +14,11 @@ char relay_no[10];
 
 void relay_select(void);
 void relay_nit(void);
-void relay_1(char relay_no[]);
-void relay_2(char relay_no[]);
-void relay_3(char relay_no[]);
-void relay_4(char relay_no[]);
-void relay_5(char relay_no[]);
+void relay_1(char relay_action[]);
+void relay_2(char relay_action[]);
+void relay_3(char relay_action[]);
+void relay_4(char relay_action[]);
+void relay_5(char relay_action[]);
 
 
 

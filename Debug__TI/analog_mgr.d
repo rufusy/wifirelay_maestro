@@ -14,6 +14,7 @@ analog_mgr.obj: /home/rufusy/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.4.LTS/inclu
 analog_mgr.obj: /home/rufusy/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.4.LTS/include/string.h
 analog_mgr.obj: /home/rufusy/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.4.LTS/include/_ti_config.h
 analog_mgr.obj: /home/rufusy/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.4.LTS/include/linkage.h
+analog_mgr.obj: /home/rufusy/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.4.LTS/include/stdlib.h
 analog_mgr.obj: /home/rufusy/tiva_sw/inc/hw_ints.h
 analog_mgr.obj: /home/rufusy/tiva_sw/inc/hw_memmap.h
 analog_mgr.obj: /home/rufusy/tiva_sw/inc/hw_types.h
@@ -41,6 +42,7 @@ analog_mgr.obj: ../relay_mgr.h
 /home/rufusy/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.4.LTS/include/string.h: 
 /home/rufusy/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.4.LTS/include/_ti_config.h: 
 /home/rufusy/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.4.LTS/include/linkage.h: 
+/home/rufusy/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.4.LTS/include/stdlib.h: 
 /home/rufusy/tiva_sw/inc/hw_ints.h: 
 /home/rufusy/tiva_sw/inc/hw_memmap.h: 
 /home/rufusy/tiva_sw/inc/hw_types.h: 

@@ -4,6 +4,8 @@
 #include "relay_mgr.h"
 #include "analog_mgr.h"
 
+
+
 int
 main(void)
 {
@@ -18,7 +20,7 @@ main(void)
     io_init();
     serial_comm_init();
     relay_nit();
-    adc_init();
+    analog_init();
     IntMasterEnable();  // enable processor interrupts
     for (;;)
     {
@@ -29,8 +31,8 @@ main(void)
         // manage relays, digital and analog IOs
         relay_select();
         channel_select();
-        adc_select();
-        adc_sample();
+        analog_select();
+        analog_read();
     }
 }
 

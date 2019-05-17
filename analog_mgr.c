@@ -12,10 +12,39 @@
 #include "relay_mgr.h"
 
 
-uint32_t adc_value[4] = {'\0'};
+uint32_t adc_value[4]= {'\0'},
+         an1_lower_threshold = 0,
+         an1_upper_threshold = 0,
+         an2_upper_threshold = 0,
+         an2_lower_threshold = 0,
+         an3_upper_threshold = 0,
+         an3_lower_threshold = 0,
+         an4_upper_threshold = 0,
+         an4_lower_threshold = 0;
+
+char    an1_relay[7] = {'\0'},
+        an1_channel[5] = {'\0'},
+        an1_action[5] = {'\0'},
+        an1_counter_action[5] = {'\0'},
+
+        an2_relay[7] = {'\0'},
+        an2_channel[5] = {'\0'},
+        an2_action[5] = {'\0'},
+        an2_counter_action[5] = {'\0'},
+
+        an3_relay[7] = {'\0'},
+        an3_channel[5] = {'\0'},
+        an3_action[5] = {'\0'},
+        an3_counter_action[5] = {'\0'},
+
+        an4_relay[7] = {'\0'},
+        an4_channel[5] = {'\0'},
+        an4_action[5] = {'\0'},
+        an4_counter_action[5] = {'\0'};
+
 
 void
-adc_init(void)
+analog_init(void)
 {
     SysCtlPeripheralEnable(SYSCTL_PERIPH_ADC0);
     GPIOPinTypeADC(GPIO_PORTE_BASE, GPIO_PIN_3 | GPIO_PIN_2 |GPIO_PIN_1);
@@ -28,84 +57,159 @@ adc_init(void)
     ADCSequenceEnable(ADC0_BASE,1);
 }
 
-void
-adc_sample(void)
-{
-    ADCIntClear(ADC0_BASE, 1);
-    ADCProcessorTrigger(ADC0_BASE, 1);
-    while(!ADCIntStatus(ADC0_BASE, 1, false));
-    ADCSequenceDataGet(ADC0_BASE, 1, adc_value);
-}
 
 void
-adc_select(void)
+analog_select(void)
 {   // an1.1000.500.none.relay1.high
     if (strcmp((char*)sanitize_serial_in_cfg[0],"an1") == 0)
         analog_1();
-
     if (strcmp((char*)sanitize_serial_in_cfg[0],"an2") == 0)
         analog_2();
-
     if (strcmp((char*)sanitize_serial_in_cfg[0],"an3") == 0)
         analog_3();
-
     if (strcmp((char*)sanitize_serial_in_cfg[0],"an4") == 0)
         analog_4();
 }
 
 void
 analog_1(void)
-{
-    upper_threshold = (uint32_t)sanitize_serial_in_cfg[1];
-    lower_threshold = (uint32_t)sanitize_serial_in_cfg[2];
-    if(adc_value[0] > upper_threshold || adc_value[0] < lower_threshold)
-        analog_relay();
+{ // save configuration
+    an1_upper_threshold = (uint32_t)atoi(sanitize_serial_in_cfg[1]); // 1000
+    an1_lower_threshold = (uint32_t)atoi(sanitize_serial_in_cfg[2]); // 700
+    memset(an1_channel, '\0', sizeof(an1_channel));
+    strcpy(an1_channel, sanitize_serial_in_cfg[3]); // none
+    memset(an1_relay, '\0', sizeof(an1_relay));
+    strcpy(an1_relay, sanitize_serial_in_cfg[4]); // relay1
+    memset(an1_action, '\0', sizeof(an1_action));
+    strcpy(an1_action, sanitize_serial_in_cfg[5]); // high
 }
 
 void
 analog_2(void)
 {
-    upper_threshold = (uint32_t)sanitize_serial_in_cfg[1];
-    lower_threshold = (uint32_t)sanitize_serial_in_cfg[2];
-    if(adc_value[1] > upper_threshold || adc_value[1] < lower_threshold)
-        analog_relay();
+    an2_upper_threshold = (uint32_t)atoi(sanitize_serial_in_cfg[1]);
+    an2_lower_threshold = (uint32_t)atoi(sanitize_serial_in_cfg[2]);
+    memset(an2_channel, '\0', sizeof(an2_channel));
+    strcpy(an2_channel, sanitize_serial_in_cfg[3]);
+    memset(an2_relay, '\0', sizeof(an2_relay));
+    strcpy(an2_relay, sanitize_serial_in_cfg[4]);
+    memset(an2_action, '\0', sizeof(an2_action));
+    strcpy(an2_action, sanitize_serial_in_cfg[5]);
 }
 
 void
 analog_3(void)
 {
-    upper_threshold = (uint32_t)sanitize_serial_in_cfg[1];
-    lower_threshold = (uint32_t)sanitize_serial_in_cfg[2];
-    if(adc_value[2] > upper_threshold || adc_value[2] < lower_threshold)
-        analog_relay();
+    an3_upper_threshold = (uint32_t)atoi(sanitize_serial_in_cfg[1]);
+    an3_lower_threshold = (uint32_t)atoi(sanitize_serial_in_cfg[2]);
+    memset(an3_channel, '\0', sizeof(an3_channel));
+    strcpy(an3_channel, sanitize_serial_in_cfg[3]);
+    memset(an3_relay, '\0', sizeof(an3_relay));
+    strcpy(an3_relay, sanitize_serial_in_cfg[4]);
+    memset(an3_action, '\0', sizeof(an3_action));
+    strcpy(an3_action, sanitize_serial_in_cfg[5]);
 }
 
 void
 analog_4(void)
 {
-    upper_threshold = (uint32_t)sanitize_serial_in_cfg[1];
-    lower_threshold = (uint32_t)sanitize_serial_in_cfg[2];
-    if(adc_value[3] > upper_threshold || adc_value[3] < lower_threshold)
-        analog_relay();
+    an4_upper_threshold = (uint32_t)atoi(sanitize_serial_in_cfg[1]);
+    an4_lower_threshold = (uint32_t)atoi(sanitize_serial_in_cfg[2]);
+    memset(an4_channel, '\0', sizeof(an4_channel));
+    strcpy(an4_channel, sanitize_serial_in_cfg[3]);
+    memset(an4_relay, '\0', sizeof(an4_relay));
+    strcpy(an4_relay, sanitize_serial_in_cfg[4]);
+    memset(an4_action, '\0', sizeof(an4_action));
+    strcpy(an4_action, sanitize_serial_in_cfg[5]);
+}
+
+uint32_t limit = 2000, limit2 = 3000;
+
+
+void
+copy_command(char dest[], char src[])
+{
+    memset(dest, '\0', sizeof(dest));
+    strcpy(dest, src);
 }
 
 
 void
-analog_relay(void)
+analog_read(void)
 {
-    if (strcmp(sanitize_serial_in_cfg[4],"relay1") == 0)
-        relay_1(sanitize_serial_in_cfg[5]);
+    ADCIntClear(ADC0_BASE, 1);
+    ADCProcessorTrigger(ADC0_BASE, 1);
+    while(!ADCIntStatus(ADC0_BASE, 1, false));
+    ADCSequenceDataGet(ADC0_BASE, 1, adc_value);
 
-    if (strcmp(sanitize_serial_in_cfg[4],"relay2") == 0)
-        relay_2(sanitize_serial_in_cfg[5]);
+    // Analog channel 1
+    if(adc_value[0] <  an1_lower_threshold  || adc_value[0] >  an1_upper_threshold)
+    {
+        if(strcmp(an1_action,"high") == 0)
+            copy_command(an1_counter_action, "low");
+        if(strcmp(an1_action,"low") == 0)
+            copy_command(an1_counter_action, "high");
+        analog_relay(an1_relay,an1_action);
+    }
+    else
+        analog_relay(an1_relay,an1_counter_action);
 
-    if (strcmp(sanitize_serial_in_cfg[4],"relay3") == 0)
-        relay_3(sanitize_serial_in_cfg[5]);
 
-    if (strcmp(sanitize_serial_in_cfg[4],"relay4") == 0)
-        relay_4(sanitize_serial_in_cfg[5]);
+    // Analog channel 2
+    if(adc_value[1] <  an2_lower_threshold  || adc_value[1] >  an2_upper_threshold)
+    {
+        analog_relay(an2_relay,an2_action);
+        if(strcmp(an2_action,"high") == 0)
+            copy_command(an2_counter_action, "low");
+        if(strcmp(an2_action,"low") == 0)
+            copy_command(an2_counter_action, "high");
+    }
+    else
+        analog_relay(an2_relay,an2_counter_action);
 
-    if (strcmp(sanitize_serial_in_cfg[4],"relay5") == 0)
-        relay_5(sanitize_serial_in_cfg[5]);
+
+    // Analog channel 3
+    if(adc_value[2] <  an3_lower_threshold  || adc_value[2] >  an3_upper_threshold)
+    {
+        analog_relay(an3_relay,an3_action);
+        if(strcmp(an3_action,"high") == 0)
+            copy_command(an3_counter_action, "low");
+        if(strcmp(an3_action,"low") == 0)
+            copy_command(an3_counter_action, "high");
+    }
+    else
+        analog_relay(an3_relay,an3_counter_action);
+
+
+    // Analog channel 4
+    if(adc_value[3] <  an4_lower_threshold  || adc_value[3] >  an4_upper_threshold)
+    {
+        analog_relay(an4_relay,an4_action);
+        if(strcmp(an4_action,"high") == 0)
+            copy_command(an4_counter_action, "low");
+        if(strcmp(an4_action,"low") == 0)
+            copy_command(an4_counter_action, "high");
+    }
+    else
+        analog_relay(an4_relay,an4_counter_action);
+}
+
+void
+analog_relay(char analog_hw_interface[], char analog_hw_action[])
+{
+    if(strcmp(analog_hw_interface,"relay1") == 0)
+        relay_1(analog_hw_action);
+
+    if (strcmp(analog_hw_interface,"relay2") == 0)
+        relay_2(analog_hw_action);
+
+    if (strcmp(analog_hw_interface,"relay3") == 0)
+        relay_3(analog_hw_action);
+
+    if (strcmp(analog_hw_interface,"relay4") == 0)
+        relay_4(analog_hw_action);
+
+    if (strcmp(analog_hw_interface,"relay5") == 0)
+        relay_5(analog_hw_action);
 }
 

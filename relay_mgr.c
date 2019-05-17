@@ -48,9 +48,9 @@ void relay_select(void)
 
 
 void
-relay_1(char relay_no[]) // PD6
+relay_1(char relay_action[]) // PD6
 {
-    if (strcmp(relay_no,"high") == 0)
+    if (strcmp(relay_action,"high") == 0)
     {
 
             GPIOPinWrite(GPIO_PORTD_BASE, GPIO_PIN_6, GPIO_PIN_6);
@@ -58,7 +58,7 @@ relay_1(char relay_no[]) // PD6
 
     }
 
-    if (strcmp((char*)relay_no,"low") == 0)
+    if (strcmp((char*)relay_action,"low") == 0)
     {
 
             GPIOPinWrite(GPIO_PORTD_BASE, GPIO_PIN_6, 0);
@@ -69,9 +69,9 @@ relay_1(char relay_no[]) // PD6
 
 
 void
-relay_2(char relay_no[]) // PE0
+relay_2(char relay_action[]) // PE0
 {
-    if (strcmp((char*)relay_no,"high") == 0)
+    if (strcmp((char*)relay_action,"high") == 0)
     {
 
             GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_0, GPIO_PIN_0);
@@ -79,7 +79,7 @@ relay_2(char relay_no[]) // PE0
 
     }
 
-    if (strcmp((char*)relay_no,"low") == 0)
+    if (strcmp((char*)relay_action,"low") == 0)
     {
 
             GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_0, 0);
@@ -90,16 +90,16 @@ relay_2(char relay_no[]) // PE0
 
 
 void
-relay_3(char relay_no[]) // PB5
+relay_3(char relay_action[]) // PB5
 {
-    if (strcmp((char*)relay_no,"high") == 0)
+    if (strcmp((char*)relay_action,"high") == 0)
     {
 
             GPIOPinWrite(GPIO_PORTB_BASE, GPIO_PIN_5, GPIO_PIN_5);
             serial_print("+relay3.high*");
     }
 
-    if (strcmp((char*)relay_no,"low") == 0)
+    if (strcmp((char*)relay_action,"low") == 0)
     {
 
             GPIOPinWrite(GPIO_PORTB_BASE, GPIO_PIN_5, 0);
@@ -110,9 +110,9 @@ relay_3(char relay_no[]) // PB5
 
 
 void
-relay_4(char relay_no[]) // PE4
+relay_4(char relay_action[]) // PE4
 {
-    if (strcmp((char*)relay_no,"high") == 0)
+    if (strcmp((char*)relay_action,"high") == 0)
     {
 
             GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_4, GPIO_PIN_4);
@@ -120,7 +120,7 @@ relay_4(char relay_no[]) // PE4
 
     }
 
-    if (strcmp((char*)relay_no,"low") == 0)
+    if (strcmp((char*)relay_action,"low") == 0)
     {
 
             GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_4, 0);
@@ -131,16 +131,16 @@ relay_4(char relay_no[]) // PE4
 
 
 void
-relay_5(char relay_no[]) // PE5
+relay_5(char relay_action[]) // PE5
 {
-    if (strcmp((char*)relay_no,"high") == 0)
+    if (strcmp((char*)relay_action,"high") == 0)
     {
 
             GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_5, GPIO_PIN_5);
             serial_print("+relay5.high*");
 
     }
-    if (strcmp((char*)relay_no,"low") == 0)
+    if (strcmp((char*)relay_action,"low") == 0)
     {
 
             GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_5, 0);

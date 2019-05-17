@@ -14,6 +14,7 @@ uart_mgr.obj: /home/rufusy/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.4.LTS/include
 uart_mgr.obj: /home/rufusy/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.4.LTS/include/string.h
 uart_mgr.obj: /home/rufusy/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.4.LTS/include/_ti_config.h
 uart_mgr.obj: /home/rufusy/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.4.LTS/include/linkage.h
+uart_mgr.obj: /home/rufusy/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.4.LTS/include/stdlib.h
 uart_mgr.obj: /home/rufusy/tiva_sw/inc/hw_ints.h
 uart_mgr.obj: /home/rufusy/tiva_sw/inc/hw_memmap.h
 uart_mgr.obj: /home/rufusy/tiva_sw/inc/hw_types.h
@@ -38,6 +39,7 @@ uart_mgr.obj: /home/rufusy/tiva_sw/driverlib/adc.h
 /home/rufusy/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.4.LTS/include/string.h: 
 /home/rufusy/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.4.LTS/include/_ti_config.h: 
 /home/rufusy/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.4.LTS/include/linkage.h: 
+/home/rufusy/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.4.LTS/include/stdlib.h: 
 /home/rufusy/tiva_sw/inc/hw_ints.h: 
 /home/rufusy/tiva_sw/inc/hw_memmap.h: 
 /home/rufusy/tiva_sw/inc/hw_types.h: 
