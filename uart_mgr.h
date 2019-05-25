@@ -11,8 +11,8 @@
 #include "WIFIRelayBoard.h"
 
 
-extern char outdata[35];
-extern char indata[35];
+extern char outdata[100];
+extern char indata[100];
 extern char read_flag;
 
 void serial_comm_init(void);

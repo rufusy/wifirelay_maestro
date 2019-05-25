@@ -1,33 +1,33 @@
 ******************************************************************************
                   TI ARM Linker Unix v18.1.4                   
 ******************************************************************************
->> Linked Fri May 17 19:12:18 2019
+>> Linked Sat May 25 20:28:15 2019
 
 OUTPUT FILE NAME:   <WIFIRelayBoard.out>
-ENTRY POINT SYMBOL: "_c_int00_noargs"  address: 00001625
+ENTRY POINT SYMBOL: "_c_int00_noargs"  address: 00001849
 
 
 MEMORY CONFIGURATION
 
          name            origin    length      used     unused   attr    fill
 ----------------------  --------  ---------  --------  --------  ----  --------
-  FLASH                 00000000   00040000  00001b60  0003e4a0  R  X
-  SRAM                  20000000   00008000  00000384  00007c7c  RW X
+  FLASH                 00000000   00040000  00001d7c  0003e284  R  X
+  SRAM                  20000000   00008000  000003e9  00007c17  RW X
 
 
 SEGMENT ALLOCATION MAP
 
 run origin  load origin   length   init length attrs members
 ----------  ----------- ---------- ----------- ----- -------
-00000000    00000000    00001b60   00001b60    r-x
+00000000    00000000    00001d80   00001d80    r-x
   00000000    00000000    0000026c   0000026c    r-- .intvecs
-  0000026c    0000026c    0000164c   0000164c    r-x .text
-  000018b8    000018b8    00000270   00000270    r-- .const
-  00001b28    00001b28    00000038   00000038    r-- .cinit
-20000000    20000000    00000384   00000000    rw-
+  0000026c    0000026c    00001870   00001870    r-x .text
+  00001adc    00001adc    00000270   00000270    r-- .const
+  00001d50    00001d50    00000030   00000030    r-- .cinit
+20000000    20000000    000003e9   00000000    rw-
   20000000    20000000    00000200   00000000    rw- .stack
-  20000200    20000200    0000017c   00000000    rw- .data
-  2000037c    2000037c    00000008   00000000    rw- .bss
+  20000200    20000200    000001e5   00000000    rw- .data
+  200003e5    200003e5    00000004   00000000    rw- .bss
 
 
 SECTION ALLOCATION MAP
@@ -38,110 +38,117 @@ section   page    origin      length       input sections
 .intvecs   0    00000000    0000026c     
                   00000000    0000026c     tm4c123gh6pm_startup_ccs.obj (.intvecs)
 
-.text      0    0000026c    0000164c     
-                  0000026c    0000048c     analog_mgr.obj (.text)
-                  000006f8    000002bc     relay_mgr.obj (.text)
-                  000009b4    00000254     io_mgr.obj (.text)
-                  00000c08    000001ac     uart_mgr.obj (.text)
-                  00000db4    00000132     driverlib.lib : gpio.obj (.text:GPIOPadConfigSet)
-                  00000ee6    00000002     --HOLE-- [fill = 0]
-                  00000ee8    00000110                   : sysctl.obj (.text:SysCtlClockGet)
-                  00000ff8    000000f4                   : sysctl.obj (.text:SysCtlClockSet)
-                  000010ec    000000cc     sanitze_cfg.obj (.text)
-                  000011b8    0000009c     main.obj (.text)
-                  00001254    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : memcpy_t2.asm.obj (.text)
-                  000012f0    0000007a     driverlib.lib : adc.obj (.text:ADCSequenceStepConfigure)
-                  0000136a    0000007a     rtsv7M4_T_le_v4SPD16_eabi.lib : memset_t2.asm.obj (.text)
-                  000013e4    00000068     driverlib.lib : interrupt.obj (.text:IntEnable)
-                  0000144c    00000068     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_lzss.c.obj (.text:decompress:lzss:__TI_decompress_lzss)
-                  000014b4    00000050     driverlib.lib : adc.obj (.text:ADCSequenceConfigure)
-                  00001504    0000004c     rtsv7M4_T_le_v4SPD16_eabi.lib : atoi.c.obj (.text:atoi)
-                  00001550    00000048     driverlib.lib : gpio.obj (.text:GPIOPinConfigure)
-                  00001598    00000046                   : uart.obj (.text:UARTConfigSetExpClk)
-                  000015de    00000002     --HOLE-- [fill = 0]
-                  000015e0    00000044     rtsv7M4_T_le_v4SPD16_eabi.lib : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit:__TI_auto_init_nobinit_nopinit)
-                  00001624    00000038                                   : boot_cortex_m.c.obj (.text:_c_int00_noargs:_c_int00_noargs)
-                  0000165c    00000034     driverlib.lib : sysctl.obj (.text:SysCtlPeripheralEnable)
-                  00001690    0000002e                   : adc.obj (.text:ADCIntStatus)
-                  000016be    0000002a                   : gpio.obj (.text:GPIODirModeSet)
-                  000016e8    00000020                   : uart.obj (.text:UARTDisable)
-                  00001708    00000020     tm4c123gh6pm_startup_ccs.obj (.text)
-                  00001728    0000001e     driverlib.lib : adc.obj (.text:ADCSequenceDataGet)
-                  00001746    00000018                   : adc.obj (.text:ADCProcessorTrigger)
-                  0000175e    00000018                   : gpio.obj (.text:GPIOPinTypeGPIOOutput)
-                  00001776    00000018     rtsv7M4_T_le_v4SPD16_eabi.lib : strcmp.c.obj (.text:strcmp)
-                  0000178e    00000014     driverlib.lib : uart.obj (.text:UARTEnable)
-                  000017a2    00000014     rtsv7M4_T_le_v4SPD16_eabi.lib : strcpy.c.obj (.text:strcpy)
-                  000017b6    00000014                                   : strlen.c.obj (.text:strlen)
-                  000017ca    00000012     driverlib.lib : gpio.obj (.text:GPIOPinTypeADC)
-                  000017dc    00000012                   : gpio.obj (.text:GPIOPinTypeUART)
-                  000017ee    00000012     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_zero_init.c.obj (.text:decompress:ZI:__TI_zero_init_nomemset:__TI_zero_init_nomemset)
-                  00001800    00000010     driverlib.lib : interrupt.obj (.text:IntMasterEnable)
-                  00001810    0000000e                   : adc.obj (.text:ADCSequenceEnable)
-                  0000181e    0000000e                   : uart.obj (.text:UARTCharGetNonBlocking)
-                  0000182c    0000000e                   : uart.obj (.text:UARTCharPutNonBlocking)
-                  0000183a    0000000e                   : uart.obj (.text:UARTCharsAvail)
-                  00001848    0000000e                   : uart.obj (.text:UARTSpaceAvail)
-                  00001856    0000000e     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_none.c.obj (.text:decompress:none:__TI_decompress_none)
-                  00001864    0000000c     driverlib.lib : cpu.obj (.text:CPUcpsie)
-                  00001870    0000000a                   : adc.obj (.text:ADCIntClear)
-                  0000187a    0000000a                   : uart.obj (.text:UARTCharPut)
-                  00001884    0000000a                   : uart.obj (.text:UARTFIFODisable)
-                  0000188e    0000000a                   : uart.obj (.text:UARTIntStatus)
-                  00001898    00000008                   : uart.obj (.text:UARTIntEnable)
-                  000018a0    00000006                   : gpio.obj (.text:GPIOPinWrite)
-                  000018a6    00000006                   : sysctl.obj (.text:SysCtlDelay)
-                  000018ac    00000004                   : uart.obj (.text:UARTIntClear)
-                  000018b0    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : pre_init.c.obj (.text:_system_pre_init)
-                  000018b4    00000004                                   : exit.c.obj (.text:abort:abort)
+.text      0    0000026c    00001870     
+                  0000026c    000006b0     analog_mgr.obj (.text)
+                  0000091c    000002bc     relay_mgr.obj (.text)
+                  00000bd8    00000268     io_mgr.obj (.text)
+                  00000e40    000001ac     uart_mgr.obj (.text)
+                  00000fec    00000132     driverlib.lib : gpio.obj (.text:GPIOPadConfigSet)
+                  0000111e    00000002     --HOLE-- [fill = 0]
+                  00001120    00000110                   : sysctl.obj (.text:SysCtlClockGet)
+                  00001230    000000f4                   : sysctl.obj (.text:SysCtlClockSet)
+                  00001324    000000cc     sanitze_cfg.obj (.text)
+                  000013f0    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : memcpy_t2.asm.obj (.text)
+                  0000148c    00000088     main.obj (.text)
+                  00001514    0000007a     driverlib.lib : adc.obj (.text:ADCSequenceStepConfigure)
+                  0000158e    0000007a     rtsv7M4_T_le_v4SPD16_eabi.lib : memset_t2.asm.obj (.text)
+                  00001608    00000068     driverlib.lib : interrupt.obj (.text:IntEnable)
+                  00001670    00000068     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_lzss.c.obj (.text:decompress:lzss:__TI_decompress_lzss)
+                  000016d8    00000050     driverlib.lib : adc.obj (.text:ADCSequenceConfigure)
+                  00001728    0000004c     rtsv7M4_T_le_v4SPD16_eabi.lib : atoi.c.obj (.text:atoi)
+                  00001774    00000048     driverlib.lib : gpio.obj (.text:GPIOPinConfigure)
+                  000017bc    00000046                   : uart.obj (.text:UARTConfigSetExpClk)
+                  00001802    00000002     --HOLE-- [fill = 0]
+                  00001804    00000044     rtsv7M4_T_le_v4SPD16_eabi.lib : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit:__TI_auto_init_nobinit_nopinit)
+                  00001848    00000038                                   : boot_cortex_m.c.obj (.text:_c_int00_noargs:_c_int00_noargs)
+                  00001880    00000034     driverlib.lib : sysctl.obj (.text:SysCtlPeripheralEnable)
+                  000018b4    0000002e                   : adc.obj (.text:ADCIntStatus)
+                  000018e2    0000002a                   : gpio.obj (.text:GPIODirModeSet)
+                  0000190c    00000020                   : uart.obj (.text:UARTDisable)
+                  0000192c    00000020     tm4c123gh6pm_startup_ccs.obj (.text)
+                  0000194c    0000001e     driverlib.lib : adc.obj (.text:ADCSequenceDataGet)
+                  0000196a    00000018                   : adc.obj (.text:ADCProcessorTrigger)
+                  00001982    00000018                   : gpio.obj (.text:GPIOPinTypeGPIOOutput)
+                  0000199a    00000018     rtsv7M4_T_le_v4SPD16_eabi.lib : strcmp.c.obj (.text:strcmp)
+                  000019b2    00000014     driverlib.lib : uart.obj (.text:UARTEnable)
+                  000019c6    00000014     rtsv7M4_T_le_v4SPD16_eabi.lib : strcpy.c.obj (.text:strcpy)
+                  000019da    00000014                                   : strlen.c.obj (.text:strlen)
+                  000019ee    00000012     driverlib.lib : gpio.obj (.text:GPIOPinTypeADC)
+                  00001a00    00000012                   : gpio.obj (.text:GPIOPinTypeUART)
+                  00001a12    00000012     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_zero_init.c.obj (.text:decompress:ZI:__TI_zero_init_nomemset:__TI_zero_init_nomemset)
+                  00001a24    00000010     driverlib.lib : interrupt.obj (.text:IntMasterEnable)
+                  00001a34    0000000e                   : adc.obj (.text:ADCSequenceEnable)
+                  00001a42    0000000e                   : uart.obj (.text:UARTCharGetNonBlocking)
+                  00001a50    0000000e                   : uart.obj (.text:UARTCharPutNonBlocking)
+                  00001a5e    0000000e                   : uart.obj (.text:UARTCharsAvail)
+                  00001a6c    0000000e                   : uart.obj (.text:UARTSpaceAvail)
+                  00001a7a    0000000e     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_none.c.obj (.text:decompress:none:__TI_decompress_none)
+                  00001a88    0000000c     driverlib.lib : cpu.obj (.text:CPUcpsie)
+                  00001a94    0000000a                   : adc.obj (.text:ADCIntClear)
+                  00001a9e    0000000a                   : uart.obj (.text:UARTCharPut)
+                  00001aa8    0000000a                   : uart.obj (.text:UARTFIFODisable)
+                  00001ab2    0000000a                   : uart.obj (.text:UARTIntStatus)
+                  00001abc    00000008                   : uart.obj (.text:UARTIntEnable)
+                  00001ac4    00000006                   : gpio.obj (.text:GPIOPinWrite)
+                  00001aca    00000006                   : sysctl.obj (.text:SysCtlDelay)
+                  00001ad0    00000004                   : uart.obj (.text:UARTIntClear)
+                  00001ad4    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : pre_init.c.obj (.text:_system_pre_init)
+                  00001ad8    00000004                                   : exit.c.obj (.text:abort:abort)
 
-.const     0    000018b8    00000270     
-                  000018b8    00000101     rtsv7M4_T_le_v4SPD16_eabi.lib : ctype.c.obj (.const:.string:_ctypes_)
-                  000019b9    00000003     --HOLE-- [fill = 0]
-                  000019bc    00000090     driverlib.lib : gpio.obj (.const:g_pui32GPIOBaseAddrs)
-                  00001a4c    00000070                   : interrupt.obj (.const)
-                  00001abc    0000006c                   : sysctl.obj (.const:g_pui32Xtals)
+.const     0    00001adc    00000270     
+                  00001adc    00000101     rtsv7M4_T_le_v4SPD16_eabi.lib : ctype.c.obj (.const:.string:_ctypes_)
+                  00001bdd    00000003     --HOLE-- [fill = 0]
+                  00001be0    00000090     driverlib.lib : gpio.obj (.const:g_pui32GPIOBaseAddrs)
+                  00001c70    00000070                   : interrupt.obj (.const)
+                  00001ce0    0000006c                   : sysctl.obj (.const:g_pui32Xtals)
 
-.cinit     0    00001b28    00000038     
-                  00001b28    00000013     (.cinit..data.load) [load image, compression = lzss]
-                  00001b3b    00000001     --HOLE-- [fill = 0]
-                  00001b3c    0000000c     (__TI_handler_table)
-                  00001b48    00000008     (.cinit..bss.load) [load image, compression = zero_init]
-                  00001b50    00000010     (__TI_cinit_table)
+.cinit     0    00001d50    00000030     
+                  00001d50    0000000c     (__TI_handler_table)
+                  00001d5c    00000009     (.cinit..data.load) [load image, compression = lzss]
+                  00001d65    00000003     --HOLE-- [fill = 0]
+                  00001d68    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  00001d70    00000010     (__TI_cinit_table)
 
 .init_array 
 *          0    00000000    00000000     UNINITIALIZED
 
-.data      0    20000200    0000017c     UNINITIALIZED
-                  20000200    00000064     sanitze_cfg.obj (.data:sanitize_serial_in_cfg)
-                  20000264    00000064     sanitze_cfg.obj (.data:serial_in_cfg)
-                  200002c8    00000028     analog_mgr.obj (.data)
-                  200002f0    00000023     uart_mgr.obj (.data:indata)
-                  20000313    00000001     uart_mgr.obj (.data)
-                  20000314    00000010     analog_mgr.obj (.data:adc_value)
-                  20000324    00000007     analog_mgr.obj (.data:an1_relay)
-                  2000032b    00000007     analog_mgr.obj (.data:an2_relay)
-                  20000332    00000007     analog_mgr.obj (.data:an3_relay)
-                  20000339    00000007     analog_mgr.obj (.data:an4_relay)
-                  20000340    00000005     analog_mgr.obj (.data:an1_action)
-                  20000345    00000005     analog_mgr.obj (.data:an1_channel)
-                  2000034a    00000005     analog_mgr.obj (.data:an1_counter_action)
-                  2000034f    00000005     analog_mgr.obj (.data:an2_action)
-                  20000354    00000005     analog_mgr.obj (.data:an2_channel)
-                  20000359    00000005     analog_mgr.obj (.data:an2_counter_action)
-                  2000035e    00000005     analog_mgr.obj (.data:an3_action)
-                  20000363    00000005     analog_mgr.obj (.data:an3_channel)
-                  20000368    00000005     analog_mgr.obj (.data:an3_counter_action)
-                  2000036d    00000005     analog_mgr.obj (.data:an4_action)
-                  20000372    00000005     analog_mgr.obj (.data:an4_channel)
-                  20000377    00000005     analog_mgr.obj (.data:an4_counter_action)
+.data      0    20000200    000001e5     UNINITIALIZED
+                  20000200    00000064     uart_mgr.obj (.data:indata)
+                  20000264    00000064     sanitze_cfg.obj (.data:sanitize_serial_in_cfg)
+                  200002c8    00000064     sanitze_cfg.obj (.data:serial_in_cfg)
+                  2000032c    00000020     analog_mgr.obj (.data)
+                  2000034c    00000010     analog_mgr.obj (.data:adc_value)
+                  2000035c    00000007     analog_mgr.obj (.data:an1_out1)
+                  20000363    00000007     analog_mgr.obj (.data:an1_out2)
+                  2000036a    00000007     analog_mgr.obj (.data:an2_out1)
+                  20000371    00000007     analog_mgr.obj (.data:an2_out2)
+                  20000378    00000007     analog_mgr.obj (.data:an3_out1)
+                  2000037f    00000007     analog_mgr.obj (.data:an3_out2)
+                  20000386    00000007     analog_mgr.obj (.data:an4_out1)
+                  2000038d    00000007     analog_mgr.obj (.data:an4_out2)
+                  20000394    00000005     analog_mgr.obj (.data:an1_out1_action)
+                  20000399    00000005     analog_mgr.obj (.data:an1_out1_counter_action)
+                  2000039e    00000005     analog_mgr.obj (.data:an1_out2_action)
+                  200003a3    00000005     analog_mgr.obj (.data:an1_out2_counter_action)
+                  200003a8    00000005     analog_mgr.obj (.data:an2_out1_action)
+                  200003ad    00000005     analog_mgr.obj (.data:an2_out1_counter_action)
+                  200003b2    00000005     analog_mgr.obj (.data:an2_out2_action)
+                  200003b7    00000005     analog_mgr.obj (.data:an2_out2_counter_action)
+                  200003bc    00000005     analog_mgr.obj (.data:an3_out1_action)
+                  200003c1    00000005     analog_mgr.obj (.data:an3_out1_counter_action)
+                  200003c6    00000005     analog_mgr.obj (.data:an3_out2_action)
+                  200003cb    00000005     analog_mgr.obj (.data:an3_out2_counter_action)
+                  200003d0    00000005     analog_mgr.obj (.data:an4_out1_action)
+                  200003d5    00000005     analog_mgr.obj (.data:an4_out1_counter_action)
+                  200003da    00000005     analog_mgr.obj (.data:an4_out2_action)
+                  200003df    00000005     analog_mgr.obj (.data:an4_out2_counter_action)
+                  200003e4    00000001     uart_mgr.obj (.data)
 
-.bss       0    2000037c    00000008     UNINITIALIZED
-                  2000037c    00000004     (.common:pos)
-                  20000380    00000001     (.common:cnt)
-                  20000381    00000001     (.common:i)
-                  20000382    00000001     (.common:j)
-                  20000383    00000001     (.common:read_index)
+.bss       0    200003e5    00000004     UNINITIALIZED
+                  200003e5    00000001     (.common:cnt)
+                  200003e6    00000001     (.common:i)
+                  200003e7    00000001     (.common:j)
+                  200003e8    00000001     (.common:read_index)
 
 .stack     0    20000000    00000200     UNINITIALIZED
                   20000000    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.stack)
@@ -152,15 +159,15 @@ MODULE SUMMARY
        Module                         code   ro data   rw data
        ------                         ----   -------   -------
     ./
-       analog_mgr.obj                 1164   0         144    
+       analog_mgr.obj                 1712   0         184    
        relay_mgr.obj                  700    0         0      
        tm4c123gh6pm_startup_ccs.obj   32     620       0      
-       io_mgr.obj                     596    0         0      
-       uart_mgr.obj                   428    0         37     
+       io_mgr.obj                     616    0         0      
+       uart_mgr.obj                   428    0         102    
        sanitze_cfg.obj                204    0         203    
-       main.obj                       156    0         4      
+       main.obj                       136    0         0      
     +--+------------------------------+------+---------+---------+
-       Total:                         3280   620       388    
+       Total:                         3828   620       489    
                                                               
     /home/rufusy/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.4.LTS/lib/rtsv7M4_T_le_v4SPD16_eabi.lib
        ctype.c.obj                    0      257       0      
@@ -191,21 +198,21 @@ MODULE SUMMARY
        Total:                         1738   364       0      
                                                               
        Stack:                         0      0         512    
-       Linker Generated:              0      55        0      
+       Linker Generated:              0      45        0      
     +--+------------------------------+------+---------+---------+
-       Grand Total:                   5704   1296      900    
+       Grand Total:                   6252   1286      1001   
 
 
 LINKER GENERATED COPY TABLES
 
-__TI_cinit_table @ 00001b50 records: 2, size/record: 8, table size: 16
-	.data: load addr=00001b28, load size=00000013 bytes, run addr=20000200, run size=0000017c bytes, compression=lzss
-	.bss: load addr=00001b48, load size=00000008 bytes, run addr=2000037c, run size=00000008 bytes, compression=zero_init
+__TI_cinit_table @ 00001d70 records: 2, size/record: 8, table size: 16
+	.data: load addr=00001d5c, load size=00000009 bytes, run addr=20000200, run size=000001e5 bytes, compression=lzss
+	.bss: load addr=00001d68, load size=00000008 bytes, run addr=200003e5, run size=00000004 bytes, compression=zero_init
 
 
 LINKER GENERATED HANDLER TABLE
 
-__TI_handler_table @ 00001b3c records: 3, size/record: 4, table size: 12
+__TI_handler_table @ 00001d50 records: 3, size/record: 4, table size: 12
 	index: 0, handler: __TI_decompress_lzss
 	index: 1, handler: __TI_decompress_none
 	index: 2, handler: __TI_zero_init
@@ -215,148 +222,153 @@ GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name
 
 address   name                          
 -------   ----                          
-00001871  ADCIntClear                   
-00001691  ADCIntStatus                  
-00001747  ADCProcessorTrigger           
-000014b5  ADCSequenceConfigure          
-00001729  ADCSequenceDataGet            
-00001811  ADCSequenceEnable             
-000012f1  ADCSequenceStepConfigure      
-000018b5  C$$EXIT                       
-00001865  CPUcpsie                      
-000016bf  GPIODirModeSet                
-00000db5  GPIOPadConfigSet              
-00001551  GPIOPinConfigure              
-000017cb  GPIOPinTypeADC                
-0000175f  GPIOPinTypeGPIOOutput         
-000017dd  GPIOPinTypeUART               
-000018a1  GPIOPinWrite                  
-000013e5  IntEnable                     
-00001801  IntMasterEnable               
-00001709  ResetISR                      
-00000ee9  SysCtlClockGet                
-00000ff9  SysCtlClockSet                
-000018a7  SysCtlDelay                   
-0000165d  SysCtlPeripheralEnable        
-0000181f  UARTCharGetNonBlocking        
-0000187b  UARTCharPut                   
-0000182d  UARTCharPutNonBlocking        
-0000183b  UARTCharsAvail                
-00001599  UARTConfigSetExpClk           
-000016e9  UARTDisable                   
-0000178f  UARTEnable                    
-00001885  UARTFIFODisable               
-000018ad  UARTIntClear                  
-00001899  UARTIntEnable                 
-00000d67  UARTIntHandler                
-0000188f  UARTIntStatus                 
-00001849  UARTSpaceAvail                
+00001a95  ADCIntClear                   
+000018b5  ADCIntStatus                  
+0000196b  ADCProcessorTrigger           
+000016d9  ADCSequenceConfigure          
+0000194d  ADCSequenceDataGet            
+00001a35  ADCSequenceEnable             
+00001515  ADCSequenceStepConfigure      
+00001ad9  C$$EXIT                       
+00001a89  CPUcpsie                      
+000018e3  GPIODirModeSet                
+00000fed  GPIOPadConfigSet              
+00001775  GPIOPinConfigure              
+000019ef  GPIOPinTypeADC                
+00001983  GPIOPinTypeGPIOOutput         
+00001a01  GPIOPinTypeUART               
+00001ac5  GPIOPinWrite                  
+00001609  IntEnable                     
+00001a25  IntMasterEnable               
+0000192d  ResetISR                      
+00001121  SysCtlClockGet                
+00001231  SysCtlClockSet                
+00001acb  SysCtlDelay                   
+00001881  SysCtlPeripheralEnable        
+00001a43  UARTCharGetNonBlocking        
+00001a9f  UARTCharPut                   
+00001a51  UARTCharPutNonBlocking        
+00001a5f  UARTCharsAvail                
+000017bd  UARTConfigSetExpClk           
+0000190d  UARTDisable                   
+000019b3  UARTEnable                    
+00001aa9  UARTFIFODisable               
+00001ad1  UARTIntClear                  
+00001abd  UARTIntEnable                 
+00000f9f  UARTIntHandler                
+00001ab3  UARTIntStatus                 
+00001a6d  UARTSpaceAvail                
 20000200  __STACK_END                   
 00000200  __STACK_SIZE                  
 20000200  __STACK_TOP                   
-00001b50  __TI_CINIT_Base               
-00001b60  __TI_CINIT_Limit              
-00001b3c  __TI_Handler_Table_Base       
-00001b48  __TI_Handler_Table_Limit      
-000015e1  __TI_auto_init_nobinit_nopinit
-0000144d  __TI_decompress_lzss          
-00001857  __TI_decompress_none          
+00001d70  __TI_CINIT_Base               
+00001d80  __TI_CINIT_Limit              
+00001d50  __TI_Handler_Table_Base       
+00001d5c  __TI_Handler_Table_Limit      
+00001805  __TI_auto_init_nobinit_nopinit
+00001671  __TI_decompress_lzss          
+00001a7b  __TI_decompress_none          
 ffffffff  __TI_pprof_out_hndl           
 ffffffff  __TI_prof_data_size           
 ffffffff  __TI_prof_data_start          
 00000000  __TI_static_base__            
-000017ef  __TI_zero_init_nomemset       
-0000136b  __aeabi_memclr                
-0000136b  __aeabi_memclr4               
-0000136b  __aeabi_memclr8               
-00001255  __aeabi_memcpy                
-00001255  __aeabi_memcpy4               
-00001255  __aeabi_memcpy8               
-0000136d  __aeabi_memset                
-0000136d  __aeabi_memset4               
-0000136d  __aeabi_memset8               
+00001a13  __TI_zero_init_nomemset       
+0000158f  __aeabi_memclr                
+0000158f  __aeabi_memclr4               
+0000158f  __aeabi_memclr8               
+000013f1  __aeabi_memcpy                
+000013f1  __aeabi_memcpy4               
+000013f1  __aeabi_memcpy8               
+00001591  __aeabi_memset                
+00001591  __aeabi_memset4               
+00001591  __aeabi_memset8               
 ffffffff  __binit__                     
 ffffffff  __c_args__                    
 UNDEFED   __mpu_init                    
 20000000  __stack                       
-00001625  _c_int00_noargs               
-000018b8  _ctypes_                      
+00001849  _c_int00_noargs               
+00001adc  _ctypes_                      
 UNDEFED   _system_post_cinit            
-000018b1  _system_pre_init              
-000018b5  abort                         
-20000314  adc_value                     
-20000340  an1_action                    
-20000345  an1_channel                   
-2000034a  an1_counter_action            
-200002c8  an1_lower_threshold           
-20000324  an1_relay                     
-200002cc  an1_upper_threshold           
-2000034f  an2_action                    
-20000354  an2_channel                   
-20000359  an2_counter_action            
-200002d4  an2_lower_threshold           
-2000032b  an2_relay                     
-200002d0  an2_upper_threshold           
-2000035e  an3_action                    
-20000363  an3_channel                   
-20000368  an3_counter_action            
-200002dc  an3_lower_threshold           
-20000332  an3_relay                     
-200002d8  an3_upper_threshold           
-2000036d  an4_action                    
-20000372  an4_channel                   
-20000377  an4_counter_action            
-200002e4  an4_lower_threshold           
-20000339  an4_relay                     
-200002e0  an4_upper_threshold           
+00001ad5  _system_pre_init              
+00001ad9  abort                         
+2000034c  adc_value                     
+2000032c  an1_lower_threshold           
+2000035c  an1_out1                      
+20000394  an1_out1_action               
+20000399  an1_out1_counter_action       
+20000363  an1_out2                      
+2000039e  an1_out2_action               
+200003a3  an1_out2_counter_action       
+20000330  an1_upper_threshold           
+20000338  an2_lower_threshold           
+2000036a  an2_out1                      
+200003a8  an2_out1_action               
+200003ad  an2_out1_counter_action       
+20000371  an2_out2                      
+200003b2  an2_out2_action               
+200003b7  an2_out2_counter_action       
+20000334  an2_upper_threshold           
+20000340  an3_lower_threshold           
+20000378  an3_out1                      
+200003bc  an3_out1_action               
+200003c1  an3_out1_counter_action       
+2000037f  an3_out2                      
+200003c6  an3_out2_action               
+200003cb  an3_out2_counter_action       
+2000033c  an3_upper_threshold           
+20000348  an4_lower_threshold           
+20000386  an4_out1                      
+200003d0  an4_out1_action               
+200003d5  an4_out1_counter_action       
+2000038d  an4_out2                      
+200003da  an4_out2_action               
+200003df  an4_out2_counter_action       
+20000344  an4_upper_threshold           
 00000307  analog_1                      
-00000355  analog_2                      
-000003a3  analog_3                      
-000003f1  analog_4                      
+000003b3  analog_2                      
+00000471  analog_3                      
+0000054d  analog_4                      
+000007c1  analog_channel_relay          
 0000026d  analog_init                   
-00000491  analog_read                   
-00000645  analog_relay                  
+00000661  analog_read                   
 000002cb  analog_select                 
-00001505  atoi                          
+00001729  atoi                          
 ffffffff  binit                         
-00000a61  channel_1                     
-00000a99  channel_2                     
-00000ad1  channel_3                     
-00000b09  channel_4                     
-00000b41  channel_5                     
-00000a17  channel_select                
-20000380  cnt                           
-0000043f  copy_command                  
+00000c8f  channel_1                     
+00000cc9  channel_2                     
+00000d03  channel_3                     
+00000d3d  channel_4                     
+00000d77  channel_5                     
+00000c3b  channel_select                
+200003e5  cnt                           
+00000625  copy_command                  
 00000000  g_pfnVectors                  
-000010ed  get_serial_in                 
-20000381  i                             
-200002f0  indata                        
-000009b5  io_init                       
-20000382  j                             
-200002e8  limit                         
-200002ec  limit2                        
-000011b9  main                          
-00001255  memcpy                        
-00001373  memset                        
-2000037c  pos                           
-20000313  read_flag                     
-20000383  read_index                    
-000007ab  relay_1                       
-000007e5  relay_2                       
-0000081f  relay_3                       
-00000859  relay_4                       
-00000893  relay_5                       
-000006f9  relay_nit                     
-00000757  relay_select                  
-00001113  sanitize_serial_in            
-20000200  sanitize_serial_in_cfg        
-00000c09  serial_comm_init              
-20000264  serial_in_cfg                 
-00000d07  serial_print                  
-00000c87  serial_read                   
-00001777  strcmp                        
-000017a3  strcpy                        
-000017b7  strlen                        
+00001325  get_serial_in                 
+200003e6  i                             
+20000200  indata                        
+00000bd9  io_init                       
+200003e7  j                             
+0000148d  main                          
+000013f1  memcpy                        
+00001597  memset                        
+200003e4  read_flag                     
+200003e8  read_index                    
+000009cf  relay_1                       
+00000a09  relay_2                       
+00000a43  relay_3                       
+00000a7d  relay_4                       
+00000ab7  relay_5                       
+0000091d  relay_nit                     
+0000097b  relay_select                  
+0000134b  sanitize_serial_in            
+20000264  sanitize_serial_in_cfg        
+00000e41  serial_comm_init              
+200002c8  serial_in_cfg                 
+00000f3f  serial_print                  
+00000ebf  serial_read                   
+0000199b  strcmp                        
+000019c7  strcpy                        
+000019db  strlen                        
 
 
 GLOBAL SYMBOLS: SORTED BY Symbol Address 
@@ -369,134 +381,139 @@ address   name
 0000026d  analog_init                   
 000002cb  analog_select                 
 00000307  analog_1                      
-00000355  analog_2                      
-000003a3  analog_3                      
-000003f1  analog_4                      
-0000043f  copy_command                  
-00000491  analog_read                   
-00000645  analog_relay                  
-000006f9  relay_nit                     
-00000757  relay_select                  
-000007ab  relay_1                       
-000007e5  relay_2                       
-0000081f  relay_3                       
-00000859  relay_4                       
-00000893  relay_5                       
-000009b5  io_init                       
-00000a17  channel_select                
-00000a61  channel_1                     
-00000a99  channel_2                     
-00000ad1  channel_3                     
-00000b09  channel_4                     
-00000b41  channel_5                     
-00000c09  serial_comm_init              
-00000c87  serial_read                   
-00000d07  serial_print                  
-00000d67  UARTIntHandler                
-00000db5  GPIOPadConfigSet              
-00000ee9  SysCtlClockGet                
-00000ff9  SysCtlClockSet                
-000010ed  get_serial_in                 
-00001113  sanitize_serial_in            
-000011b9  main                          
-00001255  __aeabi_memcpy                
-00001255  __aeabi_memcpy4               
-00001255  __aeabi_memcpy8               
-00001255  memcpy                        
-000012f1  ADCSequenceStepConfigure      
-0000136b  __aeabi_memclr                
-0000136b  __aeabi_memclr4               
-0000136b  __aeabi_memclr8               
-0000136d  __aeabi_memset                
-0000136d  __aeabi_memset4               
-0000136d  __aeabi_memset8               
-00001373  memset                        
-000013e5  IntEnable                     
-0000144d  __TI_decompress_lzss          
-000014b5  ADCSequenceConfigure          
-00001505  atoi                          
-00001551  GPIOPinConfigure              
-00001599  UARTConfigSetExpClk           
-000015e1  __TI_auto_init_nobinit_nopinit
-00001625  _c_int00_noargs               
-0000165d  SysCtlPeripheralEnable        
-00001691  ADCIntStatus                  
-000016bf  GPIODirModeSet                
-000016e9  UARTDisable                   
-00001709  ResetISR                      
-00001729  ADCSequenceDataGet            
-00001747  ADCProcessorTrigger           
-0000175f  GPIOPinTypeGPIOOutput         
-00001777  strcmp                        
-0000178f  UARTEnable                    
-000017a3  strcpy                        
-000017b7  strlen                        
-000017cb  GPIOPinTypeADC                
-000017dd  GPIOPinTypeUART               
-000017ef  __TI_zero_init_nomemset       
-00001801  IntMasterEnable               
-00001811  ADCSequenceEnable             
-0000181f  UARTCharGetNonBlocking        
-0000182d  UARTCharPutNonBlocking        
-0000183b  UARTCharsAvail                
-00001849  UARTSpaceAvail                
-00001857  __TI_decompress_none          
-00001865  CPUcpsie                      
-00001871  ADCIntClear                   
-0000187b  UARTCharPut                   
-00001885  UARTFIFODisable               
-0000188f  UARTIntStatus                 
-00001899  UARTIntEnable                 
-000018a1  GPIOPinWrite                  
-000018a7  SysCtlDelay                   
-000018ad  UARTIntClear                  
-000018b1  _system_pre_init              
-000018b5  C$$EXIT                       
-000018b5  abort                         
-000018b8  _ctypes_                      
-00001b3c  __TI_Handler_Table_Base       
-00001b48  __TI_Handler_Table_Limit      
-00001b50  __TI_CINIT_Base               
-00001b60  __TI_CINIT_Limit              
+000003b3  analog_2                      
+00000471  analog_3                      
+0000054d  analog_4                      
+00000625  copy_command                  
+00000661  analog_read                   
+000007c1  analog_channel_relay          
+0000091d  relay_nit                     
+0000097b  relay_select                  
+000009cf  relay_1                       
+00000a09  relay_2                       
+00000a43  relay_3                       
+00000a7d  relay_4                       
+00000ab7  relay_5                       
+00000bd9  io_init                       
+00000c3b  channel_select                
+00000c8f  channel_1                     
+00000cc9  channel_2                     
+00000d03  channel_3                     
+00000d3d  channel_4                     
+00000d77  channel_5                     
+00000e41  serial_comm_init              
+00000ebf  serial_read                   
+00000f3f  serial_print                  
+00000f9f  UARTIntHandler                
+00000fed  GPIOPadConfigSet              
+00001121  SysCtlClockGet                
+00001231  SysCtlClockSet                
+00001325  get_serial_in                 
+0000134b  sanitize_serial_in            
+000013f1  __aeabi_memcpy                
+000013f1  __aeabi_memcpy4               
+000013f1  __aeabi_memcpy8               
+000013f1  memcpy                        
+0000148d  main                          
+00001515  ADCSequenceStepConfigure      
+0000158f  __aeabi_memclr                
+0000158f  __aeabi_memclr4               
+0000158f  __aeabi_memclr8               
+00001591  __aeabi_memset                
+00001591  __aeabi_memset4               
+00001591  __aeabi_memset8               
+00001597  memset                        
+00001609  IntEnable                     
+00001671  __TI_decompress_lzss          
+000016d9  ADCSequenceConfigure          
+00001729  atoi                          
+00001775  GPIOPinConfigure              
+000017bd  UARTConfigSetExpClk           
+00001805  __TI_auto_init_nobinit_nopinit
+00001849  _c_int00_noargs               
+00001881  SysCtlPeripheralEnable        
+000018b5  ADCIntStatus                  
+000018e3  GPIODirModeSet                
+0000190d  UARTDisable                   
+0000192d  ResetISR                      
+0000194d  ADCSequenceDataGet            
+0000196b  ADCProcessorTrigger           
+00001983  GPIOPinTypeGPIOOutput         
+0000199b  strcmp                        
+000019b3  UARTEnable                    
+000019c7  strcpy                        
+000019db  strlen                        
+000019ef  GPIOPinTypeADC                
+00001a01  GPIOPinTypeUART               
+00001a13  __TI_zero_init_nomemset       
+00001a25  IntMasterEnable               
+00001a35  ADCSequenceEnable             
+00001a43  UARTCharGetNonBlocking        
+00001a51  UARTCharPutNonBlocking        
+00001a5f  UARTCharsAvail                
+00001a6d  UARTSpaceAvail                
+00001a7b  __TI_decompress_none          
+00001a89  CPUcpsie                      
+00001a95  ADCIntClear                   
+00001a9f  UARTCharPut                   
+00001aa9  UARTFIFODisable               
+00001ab3  UARTIntStatus                 
+00001abd  UARTIntEnable                 
+00001ac5  GPIOPinWrite                  
+00001acb  SysCtlDelay                   
+00001ad1  UARTIntClear                  
+00001ad5  _system_pre_init              
+00001ad9  C$$EXIT                       
+00001ad9  abort                         
+00001adc  _ctypes_                      
+00001d50  __TI_Handler_Table_Base       
+00001d5c  __TI_Handler_Table_Limit      
+00001d70  __TI_CINIT_Base               
+00001d80  __TI_CINIT_Limit              
 20000000  __stack                       
 20000200  __STACK_END                   
 20000200  __STACK_TOP                   
-20000200  sanitize_serial_in_cfg        
-20000264  serial_in_cfg                 
-200002c8  an1_lower_threshold           
-200002cc  an1_upper_threshold           
-200002d0  an2_upper_threshold           
-200002d4  an2_lower_threshold           
-200002d8  an3_upper_threshold           
-200002dc  an3_lower_threshold           
-200002e0  an4_upper_threshold           
-200002e4  an4_lower_threshold           
-200002e8  limit                         
-200002ec  limit2                        
-200002f0  indata                        
-20000313  read_flag                     
-20000314  adc_value                     
-20000324  an1_relay                     
-2000032b  an2_relay                     
-20000332  an3_relay                     
-20000339  an4_relay                     
-20000340  an1_action                    
-20000345  an1_channel                   
-2000034a  an1_counter_action            
-2000034f  an2_action                    
-20000354  an2_channel                   
-20000359  an2_counter_action            
-2000035e  an3_action                    
-20000363  an3_channel                   
-20000368  an3_counter_action            
-2000036d  an4_action                    
-20000372  an4_channel                   
-20000377  an4_counter_action            
-2000037c  pos                           
-20000380  cnt                           
-20000381  i                             
-20000382  j                             
-20000383  read_index                    
+20000200  indata                        
+20000264  sanitize_serial_in_cfg        
+200002c8  serial_in_cfg                 
+2000032c  an1_lower_threshold           
+20000330  an1_upper_threshold           
+20000334  an2_upper_threshold           
+20000338  an2_lower_threshold           
+2000033c  an3_upper_threshold           
+20000340  an3_lower_threshold           
+20000344  an4_upper_threshold           
+20000348  an4_lower_threshold           
+2000034c  adc_value                     
+2000035c  an1_out1                      
+20000363  an1_out2                      
+2000036a  an2_out1                      
+20000371  an2_out2                      
+20000378  an3_out1                      
+2000037f  an3_out2                      
+20000386  an4_out1                      
+2000038d  an4_out2                      
+20000394  an1_out1_action               
+20000399  an1_out1_counter_action       
+2000039e  an1_out2_action               
+200003a3  an1_out2_counter_action       
+200003a8  an2_out1_action               
+200003ad  an2_out1_counter_action       
+200003b2  an2_out2_action               
+200003b7  an2_out2_counter_action       
+200003bc  an3_out1_action               
+200003c1  an3_out1_counter_action       
+200003c6  an3_out2_action               
+200003cb  an3_out2_counter_action       
+200003d0  an4_out1_action               
+200003d5  an4_out1_counter_action       
+200003da  an4_out2_action               
+200003df  an4_out2_counter_action       
+200003e4  read_flag                     
+200003e5  cnt                           
+200003e6  i                             
+200003e7  j                             
+200003e8  read_index                    
 ffffffff  __TI_pprof_out_hndl           
 ffffffff  __TI_prof_data_size           
 ffffffff  __TI_prof_data_start          
@@ -506,4 +523,4 @@ ffffffff  binit
 UNDEFED   __mpu_init                    
 UNDEFED   _system_post_cinit            
 
-[142 symbols]
+[147 symbols]

@@ -10,8 +10,8 @@
 
 char read_index,
         read_flag = 0,
-        indata[35] = {'\0'},
-        outdata[35] = {'\0'};
+        indata[100] = {'\0'},
+        outdata[100] = {'\0'};
 
 void
 serial_comm_init(void)

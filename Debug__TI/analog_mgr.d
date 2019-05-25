@@ -27,6 +27,7 @@ analog_mgr.obj: /home/rufusy/tiva_sw/driverlib/adc.h
 analog_mgr.obj: ../sanitize_cfg.h
 analog_mgr.obj: ../uart_mgr.h
 analog_mgr.obj: ../relay_mgr.h
+analog_mgr.obj: ../io_mgr.h
 
 ../analog_mgr.c: 
 ../analog_mgr.h: 
@@ -55,3 +56,4 @@ analog_mgr.obj: ../relay_mgr.h
 ../sanitize_cfg.h: 
 ../uart_mgr.h: 
 ../relay_mgr.h: 
+../io_mgr.h: 

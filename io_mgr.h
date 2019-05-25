@@ -12,11 +12,10 @@
 
 void io_init(void);
 void channel_select(void);
-void channel_1(void);
-void channel_2(void);
-void channel_3(void);
-void channel_4(void);
-void channel_5(void);
-
+void channel_1(char channel_action[]);
+void channel_2(char channel_action[]);
+void channel_3(char channel_action[]);
+void channel_4(char channel_action[]);
+void channel_5(char channel_action[]);
 
 #endif /* IO_MGR_H_ */
